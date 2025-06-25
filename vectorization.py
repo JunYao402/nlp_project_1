@@ -24,6 +24,7 @@ def generate_sentence_vector(sentence_list):
         if len(word_vec)==0:
             all_zero = np.zeros(300)
             vector_result.append(all_zero)
+    print(word2vec_model.wv.index_to_key[:10])
     return vector_result
 
 # print(generate_sentence_vector([["i like apple"],["i love you"]]))

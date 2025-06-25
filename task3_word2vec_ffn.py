@@ -7,9 +7,10 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
 
 y = df['label']
-lower_vector = np.array(generate_sentence_vector(df['clean_text_lower']))
-lower_remove_vector = np.array(generate_sentence_vector(df['clean_text_lower_remove']))
-lower_remove_lemma_vector = np.array(generate_sentence_vector(df['clean_text_lower_remove_lemma']))
+print(type(df['clean_text_lower'].apply(lambda x: x.split()).tolist()))
+lower_vector = np.array(generate_sentence_vector(df['clean_text_lower'].apply(lambda x: x.split()).tolist()))
+lower_remove_vector = np.array(generate_sentence_vector(df['clean_text_lower_remove'].apply(lambda x: x.split()).tolist()))
+lower_remove_lemma_vector = np.array(generate_sentence_vector(df['clean_text_lower_remove_lemma'].apply(lambda x: x.split()).tolist()))
 
 print("only lower")
 generate_ffn_model(lower_vector,y)
